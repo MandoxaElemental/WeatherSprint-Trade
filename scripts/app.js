@@ -1,7 +1,7 @@
 // Commented out in order for me to figure our this later
 import { APIKEY } from './environments.js';   
 
-
+let currentWeatherImg = document.getElementById('currentWeatherImg');
 let name = document.getElementById('name');
 let time = document.getElementById('time');
 let currentTemp = document.getElementById('currentTemp');
@@ -15,14 +15,19 @@ let low = document.getElementById('low');
 let humidity = document.getElementById('humidity');
 let da1h = document.getElementById('dat1h');
 let day1l = document.getElementById('day1l');
+let weatherIcon1 = document.getElementById('weatherIcon1');
 let day2h = document.getElementById('dat2h');
 let day2l = document.getElementById('day2l');
+let weatherIcon2 = document.getElementById('weatherIcon2');
 let day3h = document.getElementById('dat3h');
 let day3l = document.getElementById('day3l');
+let weatherIcon3 = document.getElementById('weatherIcon3');
 let day4h = document.getElementById('dat4h');
 let day4l = document.getElementById('day4l');
+let weatherIcon4 = document.getElementById('weatherIcon4');
 let day5h = document.getElementById('dat5h');
 let day5l = document.getElementById('day5l');
+let weatherIcon5 = document.getElementById('weatherIcon5');
 let savedArr = [];
 
 

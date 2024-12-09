@@ -57,6 +57,7 @@ body{
     border-radius: 15px;
     grid-row: 2 / 3;
     grid-column: 1 / 9;
+    padding: 10px;
 }
 .Five-Day-Grid{
     display: grid;
@@ -66,4 +67,8 @@ body{
 .Five-Day-Grid > div{
     display: flex;
     justify-content: center;
+}
+
+.weatherImg{
+    height: 100px;
 }

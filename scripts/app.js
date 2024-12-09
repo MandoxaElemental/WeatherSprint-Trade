@@ -1,4 +1,5 @@
-import { APIKEY } from './environment.js';   
+// Commented out in order for me to figure our this later
+import { APIKEY } from './environments.js';   
 
 
 //Geo location is a built in API that allows the user to share there location apon request.
@@ -12,8 +13,8 @@ navigator.geolocation.getCurrentPosition(success, errorFunc);
 //Example of the geolocation Object below
 {
     coords: {
-        latitude: 32.1234;
-        longitude: 13.1234;
+        latitude: 0;
+        longitude: 0;
     }
 }
 
@@ -44,7 +45,7 @@ function apiCall () {
     .then((data) => {
         console.log(data);
     })
-}
+};
 
 apiCall();
 

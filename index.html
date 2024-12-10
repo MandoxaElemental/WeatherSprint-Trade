@@ -6,14 +6,15 @@
     <title>Weather Sprint - Theo</title>
     <link rel="stylesheet" href="/style/styles.css">
     <link rel="stylesheet" href="/style/idStyles.css">
+    <link rel="shortcut icon" href="../assets/cloud.png"/>
 </head>
 <body>
     <div class="grid">
         <div class="box1"><img id="currentWeatherImg" class="dayTime" src="/assets/sunny.png" alt="Day"></div>
         <div class="box2">
-            <h2 id="name">[City Name Here]</h2>
+            <h2 id="name" style='display:inline'>[City Name Here]</h2><h2 id="country" style='display:inline'>[Country Name Here]</h2>
             <p id="time">As of [Insert Time Here]</p>
-            <h1 id="currentTemp">[00°F|C]</h1>
+            <h1 id="currentTemp" style='display:inline'>[00°]</h1><h1 id="farenheit" class="active" style='display:inline'>F</h1><h1 id="celsius" class="inactive" style='display:inline'>C</h1>
             <h1 id="weather">[Insert Weather Here]</h1>
         </div>
         <div class="box3">

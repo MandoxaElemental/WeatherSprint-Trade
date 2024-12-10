@@ -3,6 +3,7 @@ import { APIKEY } from './environments.js';
 
 let currentWeatherImg = document.getElementById('currentWeatherImg');
 let name = document.getElementById('name');
+let country = document.getElementById('country');
 let time = document.getElementById('time');
 let currentTemp = document.getElementById('currentTemp');
 let weather = document.getElementById('weather');
@@ -81,6 +82,7 @@ getData();
 getData().then(data => {
     console.log(data)
        name.innerText = data.city.name;
+       country.innerText = ", " + data.city.country;
        time.innerText = data.list.dt_txt;
        weather.innerText = data.list[0].weather[0].main;
        high.innerText = data.list[0].main.temp_max + " °F";
@@ -97,16 +99,19 @@ getData().then(data => {
        day4l.innerText = "L: " + data.list[3].main.temp_min + " °F";
        //day5h.innerText = "H: " + data.list[4].main.temp_max + " °F";
        //day5l.innerText = "L: " + data.list[4].main.temp_min + " °F";
+
+       if(weather.innerText.toLowerCase() == "rain"){
+       document.getElementById('currentWeatherImg').src="../assets/rainy.png"}
     });
-
-//function apiCall () {
-  //  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=37.9577&lon=-121.2908&appid=${APIKEY}`)
-    //.then((response) => {
-      //  return response.json()
-   // })
-    //.then((data) => {
-     //   console.log(data);
-    //})
-//};
-
-//apiCall();
+    
+    //function apiCall () {
+      //  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=37.9577&lon=-121.2908&appid=${APIKEY}`)
+        //.then((response) => {
+          //  return response.json()
+       // })
+        //.then((data) => {
+         //   console.log(data);
+       // })
+   // }
+    
+    //apiCall();

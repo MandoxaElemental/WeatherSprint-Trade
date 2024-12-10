@@ -42,7 +42,7 @@ body{
 .search{
     display: grid;
     grid-template-columns: auto 1fr auto;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #98d8ea;
     border-radius: 100px;
     align-items: center;
     padding: 0px 10px;

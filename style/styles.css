@@ -33,10 +33,10 @@ body{
 }
 .box3{
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: auto auto;
     border-radius: 15px;
     grid-column: 5 / 9;
-    gap: 15px;
+    gap: 20px;
 }
 
 .search{
@@ -45,18 +45,27 @@ body{
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 100px;
     align-items: center;
-    padding: 0px 20px
+    padding: 0px 10px;
+    height: 50px;
 }
 .searchBtn{
     height: 25px;
 }
+
 .search > div{
     padding: 0px 5px
 }
-.search > div > h2 {
-    border-right: solid black;
-    border-left: solid black;
-    padding: 0px 10px;
+
+.searchDiv{
+    display: flex;
+    align-items: center;
+}
+
+.searchBar{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 25px;
+    border: none;
 }
 
 .star{
@@ -69,10 +78,29 @@ body{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
+    gap: 5px;
+    text-align: center;
+}
+
+.stats > div{
+    margin: 0px;
+}
+.stats > div > h2{
+    font-size: 30px;
+    text-decoration: underline;
+    margin: 0px;
+}
+
+.align{
+    vertical-align: top;
+}
+.stats > div > h1{
+    margin: 0px;
+    font-weight: normal;
 }
 
 .statImg{
-    height: 50px;
+    height: 40px;
 }
 
 .box4{
@@ -82,6 +110,13 @@ body{
     grid-column: 1 / 9;
     padding: 10px;
 }
+
+.box4 > h2 {
+    font-size: 50px;
+    margin: 5px;
+    font-weight: normal;
+}
+
 .Five-Day-Grid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);

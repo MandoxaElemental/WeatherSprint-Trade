@@ -1,0 +1,25 @@
+#name{
+    font-size: 50px;
+    margin: 5px;
+}
+
+#time{
+    font-size: 25px;
+    margin: 5px;
+}
+
+#currentTemp{
+    font-size: 60px;
+    margin: 5px;
+}
+
+#weather{
+    font-size: 50px;
+    font-weight: normal;
+    margin: 5px;
+}
+
+.Five-Day-Grid > div > h2{
+    font-size: 30px;
+    font-weight: normal;
+}

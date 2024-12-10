@@ -34,6 +34,16 @@
   * Github Link in comments
   * Figma link in comments
 
+### Day 2
+- For this day you are to
+  * Submit your progress on your application.
+  * The goal is to be around 25-45% done with your layout.
+
+- Things to turn in:
+  * Code (zipped)
+  * Github Repo Link in comments
+  * Assigned Figma link in comments
+
 
 > Notes: 
 

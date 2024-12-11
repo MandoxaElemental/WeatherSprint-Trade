@@ -44,6 +44,17 @@
   * Github Repo Link in comments
   * Assigned Figma link in comments
 
+### Day 3
+- For this day you are to
+  * Submit your progress on your application.
+  * The goal is to be around 50-65% done with your layout.
+  * Search functionality could be working by now
+
+- Things to turn in:
+  * Code (zipped)
+  * Github Repo Link in comments
+  * Assigned Figma link in comments
+
 
 > Notes: 
 

@@ -31,6 +31,7 @@ let weatherIcon4 = document.getElementById('weatherIcon4');
 let day5h = document.getElementById('day5h');
 let day5l = document.getElementById('day5l');
 let weatherIcon5 = document.getElementById('weatherIcon5');
+let cityName = "London"
 let savedArr = [];
 let recentArr = [];
 
@@ -65,27 +66,36 @@ function errorFunc(error){
     console.log(error.message);
 }
 
+search.addEventListener('keypress', (e) => {
+    if(event.key === 'Enter'){
+        cityName = search.value;
+        console.log(cityName);
+        if(cityName){
+            if(savedArr.Length == 5){
+                savedArr.slice(1)
+                savedArr.push(cityName);
+            }
+            else{
+                savedArr.push(cityName);
+            }
+        }
+        console.log(savedArr)
+    }
+})
 
 
 //`api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${fiveDayKey}`
 
 //Create the apiCall while using the APIKEY from the environment.js file
 // Practice
-function getData(){
-    return fetch('../data/data.json')
-    .then(response => response.json())
-    .then(data => {
-        return data;
-        console.log(data)
-    }
-)};
 
-getData();
 
-getData().then(data => {
-    console.log(data)
-       name.innerText = data.city.name;
-       country.innerText = ", " + data.city.country;
+async function apiCall(){
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`);
+    const data = await promise.json();
+    console.log(data);
+    name.innerText = data.city.name;
+    country.innerText = ", " + data.city.country;
        time.innerText = data.list[0].dt_txt;
        weather.innerText = data.list[0].weather[0].main;
        currentTemp.innerText = Math.round((data.list[0].main.temp * 9/5) - 459.67) + "°";
@@ -101,56 +111,56 @@ getData().then(data => {
        day3l.innerText = "L: " + Math.round((data.list[2].main.temp_min * 9/5) - 459.67) + "°F";
        day4h.innerText = "H: " + Math.round((data.list[3].main.temp_max * 9/5) - 459.67) + "°F";
        day4l.innerText = "L: " + Math.round((data.list[3].main.temp_min * 9/5) - 459.67) + "°F";
-       //day5h.innerText = "H: " + data.list[4].main.temp_max + " °F";
-       //day5l.innerText = "L: " + data.list[4].main.temp_min + " °F";
+       day5h.innerText = "H: " + Math.round((data.list[4].main.temp_max * 9/5) - 459.67) + "°F";
+       day5l.innerText = "L: " + Math.round((data.list[4].main.temp_min * 9/5) - 459.67) + "°F";
 
-       if(weather.innerText.toLowerCase() == "rain"){
-       document.getElementById('currentWeatherImg').src="../assets/rainy.png"}
+       fahrenheit.addEventListener('click', function(){
+        fahrenheit.className = 'active';
+        celsius.className = 'inactive'
+           currentTemp.innerText = Math.round((data.list[0].main.temp * 9/5) - 459.67) + "°";
+           high.innerText = Math.round((data.list[0].main.temp_max * 9/5) - 459.67) + "°F";
+           low.innerText = Math.round((data.list[0].main.temp_min * 9/5) - 459.67) + "°F";
+           day1h.innerText = "H: " + Math.round((data.list[0].main.temp_max * 9/5) - 459.67) + "°F";
+           day1l.innerText = "L: " + Math.round((data.list[0].main.temp_min * 9/5) - 459.67) + "°F";
+           day2h.innerText = "H: " + Math.round((data.list[1].main.temp_max * 9/5) - 459.67) + "°F";
+           day2l.innerText = "L: " + Math.round((data.list[1].main.temp_min * 9/5) - 459.67) + "°F";
+           day3h.innerText = "H: " + Math.round((data.list[2].main.temp_max * 9/5) - 459.67) + "°F";
+           day3l.innerText = "L: " + Math.round((data.list[2].main.temp_min * 9/5) - 459.67) + "°F";
+           day4h.innerText = "H: " + Math.round((data.list[3].main.temp_max * 9/5) - 459.67) + "°F";
+           day4l.innerText = "L: " + Math.round((data.list[3].main.temp_min * 9/5) - 459.67) + "°F";
+           day5h.innerText = "H: " + Math.round((data.list[4].main.temp_max * 9/5) - 459.67) + "°F";
+           day5l.innerText = "L: " + Math.round((data.list[4].main.temp_min * 9/5) - 459.67) + "°F";
     });
-    
-fahrenheit.addEventListener('click', function(){
-    fahrenheit.className = 'active';
-    celsius.className = 'inactive'
-    getData().then(data => {
-       currentTemp.innerText = Math.round((data.list[0].main.temp * 9/5) - 459.67) + "°";
-       high.innerText = Math.round((data.list[0].main.temp_max * 9/5) - 459.67) + "°F";
-       low.innerText = Math.round((data.list[0].main.temp_min * 9/5) - 459.67) + "°F";
-       day1h.innerText = "H: " + Math.round((data.list[0].main.temp_max * 9/5) - 459.67) + "°F";
-       day1l.innerText = "L: " + Math.round((data.list[0].main.temp_min * 9/5) - 459.67) + "°F";
-       day2h.innerText = "H: " + Math.round((data.list[1].main.temp_max * 9/5) - 459.67) + "°F";
-       day2l.innerText = "L: " + Math.round((data.list[1].main.temp_min * 9/5) - 459.67) + "°F";
-       day3h.innerText = "H: " + Math.round((data.list[2].main.temp_max * 9/5) - 459.67) + "°F";
-       day3l.innerText = "L: " + Math.round((data.list[2].main.temp_min * 9/5) - 459.67) + "°F";
-       day4h.innerText = "H: " + Math.round((data.list[3].main.temp_max * 9/5) - 459.67) + "°F";
-       day4l.innerText = "L: " + Math.round((data.list[3].main.temp_min * 9/5) - 459.67) + "°F";
-       //day5h.innerText = "H: " + data.list[4].main.temp_max + " °F";
-       //day5l.innerText = "L: " + data.list[4].main.temp_min + " °F";
-    })
-});
-celsius.addEventListener('click', function(){
-    fahrenheit.className = 'inactive';
-    celsius.className = 'active'
-    getData().then(data => {
-           currentTemp.innerText = Math.round((Math.round((data.list[0].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°";
-           high.innerText = Math.round((Math.round((data.list[0].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
-           low.innerText = Math.round((Math.round((data.list[0].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";;
-           day1h.innerText = "H: " + Math.round((Math.round((data.list[0].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
-           day1l.innerText = "L: " + Math.round((Math.round((data.list[0].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";
-           day2h.innerText = "H: " + Math.round((Math.round((data.list[1].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
-           day2l.innerText = "L: " + Math.round((Math.round((data.list[1].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";
-           day3h.innerText = "H: " + Math.round((Math.round((data.list[2].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
-           day3l.innerText = "L: " + Math.round((Math.round((data.list[2].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";
-           day4h.innerText = "H: " + Math.round((Math.round((data.list[3].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
-           day4l.innerText = "L: " + Math.round((Math.round((data.list[3].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";
-           //day5h.innerText = "H: " + data.list[4].main.temp_max + " °F";
-           //day5l.innerText = "L: " + data.list[4].main.temp_min + " °F";
-        })
-});
 
-async function apiCall(){
-    const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=London&appid=${APIKEY}`);
-    const data = await promise.json();
-    console.log(data);
+    celsius.addEventListener('click', function(){
+        fahrenheit.className = 'inactive';
+        celsius.className = 'active'
+               currentTemp.innerText = Math.round((Math.round((data.list[0].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°";
+               high.innerText = Math.round((Math.round((data.list[0].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               low.innerText = Math.round((Math.round((data.list[0].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";;
+               day1h.innerText = "H: " + Math.round((Math.round((data.list[0].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               day1l.innerText = "L: " + Math.round((Math.round((data.list[0].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               day2h.innerText = "H: " + Math.round((Math.round((data.list[1].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               day2l.innerText = "L: " + Math.round((Math.round((data.list[1].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               day3h.innerText = "H: " + Math.round((Math.round((data.list[2].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               day3l.innerText = "L: " + Math.round((Math.round((data.list[2].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               day4h.innerText = "H: " + Math.round((Math.round((data.list[3].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               day4l.innerText = "L: " + Math.round((Math.round((data.list[3].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               day5h.innerText = "H: " + Math.round((Math.round((data.list[4].main.temp_max * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+               day5l.innerText = "L: " + Math.round((Math.round((data.list[4].main.temp_min * 9/5) - 459.67) - 32) / (9/5)) + "°C";
+    });
+
+    if(weather.innerText.toLowerCase() == "rain"){
+        document.getElementById('currentWeatherImg').src="../assets/rainy.png"
+    }else if(weather.innerText.toLowerCase() == "clear"){
+        document.getElementById('currentWeatherImg').src="../assets/sunny.png"
+    }else if(weather.innerText.toLowerCase() == "clouds"){
+        document.getElementById('currentWeatherImg').src="../assets/cloud.png"
+    }else if(weather.innerText.toLowerCase() == "clouds"){
+        document.getElementById('currentWeatherImg').src="../assets/cloud.png"
+    }
 };
     
     apiCall();
+
+

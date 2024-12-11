@@ -39,7 +39,7 @@ let day5weather = "";
 let cityName = "Stockton"
 let savedArr = [];
 let recentArr = [];
-
+let fetchLink = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`;
 
 //Geo location is a built in API that allows the user to share there location apon request.
 
@@ -71,32 +71,10 @@ function errorFunc(error){
     console.log(error.message);
 }
 
-search.addEventListener('keypress', (e) => {
-    if(event.key === 'Enter'){
-        cityName = search.value;
-        console.log(cityName);
-        if(cityName){
-            if(savedArr.Length == 5){
-                savedArr.slice(1)
-                savedArr.push(cityName);
-            }
-            else{
-                savedArr.push(cityName);
-            }
-        }
-        console.log(savedArr)
-    }
-})
-
-
-//`api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${fiveDayKey}`
-
-//Create the apiCall while using the APIKEY from the environment.js file
-// Practice
 
 
 async function apiCall(){
-    const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`);
+    const promise = await fetch(fetchLink);
     const data = await promise.json();
     console.log(data);
     name.innerText = data.city.name;
@@ -219,14 +197,18 @@ async function apiCall(){
     }else if(day5weather == "Snow"){
         document.getElementById('weatherIcon5').src="../assets/snow.png"
     }
-
-    console.log(day1weather)
-    console.log(day2weather)
-    console.log(day3weather)
-    console.log(day4weather)
-    console.log(day5weather)
 };
     
     apiCall();
 
+console.log(cityName);
 
+search.addEventListener('keypress', (e) => {
+    if(event.key === 'Enter'){
+        cityName = search.value;
+        search.value = "";
+        console.log(cityName);
+        fetchLink = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`;
+        apiCall();
+    }
+})

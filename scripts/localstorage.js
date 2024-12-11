@@ -1,16 +1,17 @@
 
-function saveToLocalStorage(country){
-    let countryArr = getFromLocalStorage();
 
-    if(!countryArr.includes(country)){
-        countryArr.push(country);
+function saveToLocalStorage(saved){
+    let savedArr = getFromLocalStorage();
+
+    if(!savedArr.includes(saved)){
+        savedArr.push(saved);
     }
 
-    localStorage.setItem('countrysaved', JSON.stringify(countryArr))
+    localStorage.setItem('SavedCountries', JSON.stringify(savedArr))
 }
 
 function getFromLocalStorage(){
-    let localStorageData = localStorage.getItem('countrysaved');
+    let localStorageData = localStorage.getItem('SavedCountries');
 
     if(localStorageData == null){
         return [];
@@ -20,14 +21,14 @@ function getFromLocalStorage(){
 
 }
 
-function removeFromLocalStorage(country){
+function removeFromLocalStorage(saved){
     let localStorageData = getFromLocalStorage();
 
-    let countryIndex =  localStorageData.indexOf(country);
+    let savedIndex =  localStorageData.indexOf(saved);
 
-    localStorageData.splice(countryIndex, 1);
+    localStorageData.splice(savedIndex, 1);
 
-    localStorage.setItem('countrysaved', JSON.stringify(localStorageData))
+    localStorage.setItem('SavedCountries', JSON.stringify(localStorageData))
 }
 
 export{saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage}

@@ -212,13 +212,11 @@ search.addEventListener('keypress', (e) => {
         search.value = "";
         console.log(cityName);
         fetchLink = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`;
-        if(cityName){
             if(recentArr.Length == 5){
-                recentArr.Slice(1);
+                recentArr.slice(1);
             }
             recentArr.push(cityName);
             console.log(recentArr)
-        }
         apiCall();
     }
 })

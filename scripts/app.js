@@ -1,5 +1,7 @@
 // Commented out in order for me to figure our this later
-import { APIKEY, fiveDayKey } from './environments.js';   
+import { APIKEY, fiveDayKey } from './environments.js';
+import { saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage} from "./localstorage.js";
+
 
 let currentWeatherImg = document.getElementById('currentWeatherImg');
 let name = document.getElementById('name');
@@ -40,6 +42,7 @@ let cityName = "Stockton"
 let savedArr = [];
 let recentArr = [];
 let fetchLink = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`;
+let starTrue = 
 
 //Geo location is a built in API that allows the user to share there location apon request.
 
@@ -209,6 +212,13 @@ search.addEventListener('keypress', (e) => {
         search.value = "";
         console.log(cityName);
         fetchLink = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`;
+        if(cityName){
+            if(recentArr.Length == 5){
+                recentArr.Slice(1);
+            }
+            recentArr.push(cityName);
+            console.log(recentArr)
+        }
         apiCall();
     }
 })

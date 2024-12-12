@@ -52,14 +52,18 @@ body{
     display: none;
     position: absolute;
     background-color: #98d8ea;
-    width: 200px;;
+    width: 300px;
     overflow: auto;
+    padding: 12px 16px;
     z-index: 1;
   }
-
+.dropdown-content h2 {
+    margin: 0px;
+    text-decoration: underline;
+  }
   .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 12px 0px;
     text-decoration: none;
     display: block;
   }
@@ -72,7 +76,7 @@ body{
 }
 
 .searchDiv{
-    display: flex;
+    display: relative;
     align-items: center;
 }
 

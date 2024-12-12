@@ -42,7 +42,8 @@ let cityName = "Stockton"
 let savedArr = [];
 let recentArr = [];
 let fetchLink = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`;
-let starTrue = 
+let recentList = false;
+let saveList = false;
 
 //Geo location is a built in API that allows the user to share there location apon request.
 
@@ -209,6 +210,9 @@ console.log(cityName);
 search.addEventListener('click', function(e){
     document.getElementById("myDropdown").classList.toggle("show");
 });
+saved.addEventListener('click', function(e){
+    document.getElementById("savedDropdown").classList.toggle("show");
+});
 
 search.addEventListener('keypress', (e) => {
     if(event.key === 'Enter'){
@@ -221,6 +225,15 @@ search.addEventListener('keypress', (e) => {
             if(recentArr.length > 5){
                 recentArr.shift();
             }
+                let listItem = document.createElement("a");
+                listItem.setAttribute("id", "test");
+                listItem.textContent = cityName;
+                let removeBtn = document.createElement('button');
+                removeBtn.type = 'button';
+                removeBtn.className = "btn btn-danger btn-sm";
+                removeBtn.innerText = "Delete Name";
+                myDropdown.appendChild(listItem);
+                listItem.appendChild(removeBtn);
             console.log(recentArr)
         apiCall();
     }

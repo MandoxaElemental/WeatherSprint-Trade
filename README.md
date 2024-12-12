@@ -1,7 +1,7 @@
 # Weather Sprint
 
 ### Gianpaolo Reinares
-### 12/9/2024
+### 12/12/2024
 # "Project - Weather Sprint"
 ### Description: 
 - You are to build out a weather app prototype for this week.
@@ -55,6 +55,17 @@
   * Github Repo Link in comments
   * Assigned Figma link in comments
 
+### Day 4
+- For this day you are to:
+  * Submit your progress on your application.
+  * The goal is to be around 65-80% done with your layout.
+  * Search Functionality should be operational and moving onto Local Storage
+
+- Things to turn in:
+  * Code (zipped)
+  * Github Repo Link in comments
+  * Assigned Figma link in comments
+  * Vercel Link in comments 
 
 > Notes: 
 

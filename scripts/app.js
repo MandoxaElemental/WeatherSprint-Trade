@@ -206,16 +206,21 @@ async function apiCall(){
 
 console.log(cityName);
 
+search.addEventListener('click', function(e){
+    document.getElementById("myDropdown").classList.toggle("show");
+});
+
 search.addEventListener('keypress', (e) => {
     if(event.key === 'Enter'){
         cityName = search.value;
         search.value = "";
         console.log(cityName);
         fetchLink = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`;
-            if(recentArr.Length == 5){
-                recentArr.slice(1);
+        
+        recentArr.push(cityName);
+            if(recentArr.length > 5){
+                recentArr.shift();
             }
-            recentArr.push(cityName);
             console.log(recentArr)
         apiCall();
     }

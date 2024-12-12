@@ -48,6 +48,21 @@ body{
     padding: 0px 10px;
     height: 50px;
 }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #98d8ea;
+    width: 200px;;
+    overflow: auto;
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
 .searchBtn{
     height: 25px;
 }
@@ -66,6 +81,9 @@ body{
     background-color: rgba(0, 0, 0, 0);
     font-size: 25px;
     border: none;
+}
+.show {
+    display: block;
 }
 
 .star{

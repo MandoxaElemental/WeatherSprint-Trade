@@ -15,6 +15,11 @@ body{
     gap: 25px;
     padding: 75px 150px;
 }
+
+.testClass{
+    color: red;
+}
+
 .box1{
     display: flex;
     justify-content: center;
@@ -84,6 +89,12 @@ body{
     width: 100%;
     background-color: rgba(0, 0, 0, 0);
     font-size: 25px;
+    border: none;
+}
+
+.saveBtn{
+    float: right;
+    background-color: rgba(255, 255, 255, 0);
     border: none;
 }
 .show {

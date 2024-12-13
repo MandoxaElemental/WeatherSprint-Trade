@@ -77,6 +77,10 @@ body{
     font-size: 25px;
     margin: 5px;
   }
+  #savedDropdown > p {
+    font-size: 25px;
+    margin: 5px;
+  }
 .searchBtn{
     height: 25px;
 }

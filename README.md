@@ -67,6 +67,14 @@
   * Assigned Figma link in comments
   * Vercel Link in comments 
 
+### Day 5
+- For this day you are to submit your final project
+  * Code (zipped)
+  * Github Repo Link in comments
+  * Assigned Figma link in comments
+  * Hosted Vercel Link in comments
+
+
 > Notes: 
 
 ### _GitHub Repository Link:_

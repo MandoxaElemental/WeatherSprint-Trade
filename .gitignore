@@ -1,3 +1,5 @@
 # What files should be ignored by git
 
 environments.js
+
+drawingboard.js

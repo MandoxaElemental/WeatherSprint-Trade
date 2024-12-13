@@ -39,7 +39,7 @@ let day5l = document.getElementById('day5l');
 let weatherIcon5 = document.getElementById('weatherIcon5');
 let day5weather = "";
 let cityName = "Stockton"
-let savedArr = [];
+let savedArr = getFromLocalStorage();
 let recentArr = [];
 let fetchLink = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`;
 let saveBtn = false
@@ -246,6 +246,7 @@ search.addEventListener('keypress', (e) => {
                     </svg>`
                     saveBool = true;
                     saveToLocalStorage(cityName);
+                    console.log(savedArr)
 
                 } else if(saveBool){
                     saveBtn.innerHTML = `<svg id='saved_${i}' class='starBtn' xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
@@ -253,6 +254,7 @@ search.addEventListener('keypress', (e) => {
                     </svg>`;
                     saveBool = false;
                     removeFromLocalStorage(cityName);
+                    console.log(savedArr)
                 }
             });
             myDropdown.appendChild(listItem);

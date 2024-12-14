@@ -332,6 +332,7 @@ search.addEventListener('keypress', (e) => {
                     </svg>`;
                 }
             }
+            
             saveBtn.addEventListener('click', function(e) {
                 if(getFromLocalStorage().includes(recentArr[i])){
                     saveBtn.innerHTML = `<svg id='saved_${i}' class='starBtn' xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">

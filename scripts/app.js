@@ -1,5 +1,5 @@
 // Commented out in order for me to figure our this later
-import { APIKEY, fiveDayKey } from './environments.js';
+import { APIKEY } from './environments.js';
 import { saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage} from "./localstorage.js";
 
 

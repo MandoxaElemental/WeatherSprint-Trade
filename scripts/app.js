@@ -136,7 +136,7 @@ async function apiCall(){
     name.innerText = data.city.name;
     country.innerText = ", " + data.city.country;
     const currentTime = new Date;
-       time.innerText = "As of " + currentTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+       time.innerText = "As of " + currentTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
        weather.innerText = data.list[0].weather[0].main;
        currentTemp.innerText = Math.round((data.list[0].main.temp * 9/5) - 459.67) + "°";
        high.innerText = Math.round((data.list[0].main.temp_max * 9/5) - 459.67) + "°F";

@@ -45,8 +45,8 @@ let cityName = "Stockton"
 let recentArr = [];
 let fetchLink = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`;
 let saveBtn = false
-let searchBool = false;
-let savedBool = false;
+let searchBool = true;
+let savedBool = true;
 let daysArr = [
     'Sun',
     'Mon',

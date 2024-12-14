@@ -84,5 +84,5 @@
 ### _Vercel Link:_
 [Vercel Link](https://weather-sprint-trade.vercel.app/)
 
-This has been Peer Reviewed By: 
-> Comments: 
+This has been Peer Reviewed By: David Monterrosa
+> Comments: There are some issues with the display of the favorites. The favorites box and recent searches overlap. Also there is a duplication effect when the favorites are opened up. Other than that searching for cities works as expected. Also The css is well done. Overall Great job!
